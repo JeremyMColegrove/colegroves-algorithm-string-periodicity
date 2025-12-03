@@ -19,15 +19,18 @@
  * EXAMPLE: "aaabbbaaabbbaaabbb" ("aaabbb" repeating 3 times)
  * 1) Generate frequency map => {a: 9, b: 9}
  * 2) Get GCM => 9
- * 3) Not multiple of 0 or 1, continue
+ * 3) GCM is not 0 or 1, continue
  * 4) 3 is the first multiple of 9, so divide original string by 3 and test substring (0, 18/3) => "aaabbb"
  * This is the correct result
+ *
+ * The worst case timing for this algo is O(N^(1 + 1/lnlnN)), slightly larger than O(N),
+ * but for most real world inputs is O(N) because most numbers have few divisors.
  *
  * @param {string} str the string to test if is made of substrings
  * @returns boolean
  */
 
-function hasRepeatingSubstring(str) {
+export function isPeriodic(str) {
 	// build map of character frequency O(n)
 	const freq = new Map();
 	for (const ch of str) freq.set(ch, (freq.get(ch) || 0) + 1);
@@ -42,16 +45,14 @@ function hasRepeatingSubstring(str) {
 				: vals.reduce((a, c) => gcm(a, c));
 	// early escape if gcm is 1 or 0
 	if (gm <= 1) return false;
-	// first substring as 0, sum of vals / gcm
-	// worst case scenario
+	// loop over all multiples of gcm
 	for (let k = 2; k <= gm; k++) {
 		if (gm % k !== 0) continue;
+		// test str split into k pieces
 		if (isRepeating(str, str.substring(0, str.length / k))) {
 			return true;
 		}
 	}
-
-	return false;
 }
 
 function isRepeating(str, sub) {
