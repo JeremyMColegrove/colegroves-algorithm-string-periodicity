@@ -52,4 +52,8 @@ Therefore, the total complexity is:
 ```
 
 ### **3. Space Complexity**
-**Map Storage**: $O(|\Sigma|)$ to store character counts.**Auxiliary**: $O(1)$ for loop variables.Total: $O(1)$ (constant space relative to alphabet size).
+**Map Storage**: $O(|\Sigma|)$ to store character counts.
+
+**Auxiliary**: $O(1)$ for loop variables.
+
+**Total**: $O(1)$ (constant space relative to alphabet size).
