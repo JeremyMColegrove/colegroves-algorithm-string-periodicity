@@ -1,6 +1,6 @@
-# colegrove's-algorithm-string-periodicity
+# GCD-substring-extractor
 
-Algorithm Analysis: GCD-Based Repeating Substring Detection
+Algorithm Analysis: GCD-Based All Repeating Substring Detection
 
 ### **1. Mathematical Proof of Correctness**
 
@@ -60,3 +60,12 @@ Therefore, the total complexity is:
 **Auxiliary**: $O(1)$ for loop variables.
 
 **Total**: $O(1)$ (constant space relative to alphabet size).
+
+
+### 4. Benefits over previous known methods
+
+1. **Memory advantage**: Since the space required is $O(1)$, this is significantly better than the standard KMP algorithm, which is $O(N)$.
+2. **Parallelization**: Unlike KMP, this algorithm can easily be ran in parallel.
+3. **Anagrammatic Periodicity**: Since this algorithm analyzes the frequency, we can tell if the string is an anagram for a repeating string i.e. if we rearranged the letters, could we make a valid periodic string?
+
+These unique advantages make it applicable for small IoT devices, or processing large amounts of text.
