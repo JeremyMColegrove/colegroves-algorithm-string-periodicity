@@ -68,4 +68,4 @@ Therefore, the total complexity is:
 2. **Parallelization**: Unlike KMP, this algorithm can easily be ran in parallel.
 3. **Anagrammatic Periodicity**: Since this algorithm analyzes the frequency, we can tell if the string is an anagram for a repeating string i.e. if we rearranged the letters, could we make a valid periodic string?
 
-These unique advantages make it applicable for small IoT devices, or processing large amounts of text.
+These unique advantages make it applicable for small IoT devices, or processing large amounts of text in parallel.
